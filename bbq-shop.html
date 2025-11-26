@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBQ Test - Premium BBQ Products & Sauces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #2d1810 0%, #5c3d2e 50%, #8B6F47 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #fb923c, #f87171);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .icon-large {
+            font-size: 2rem;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .nav-active {
+            color: #ea580c;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="fixed w-full bg-white/95 backdrop-blur z-50 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <button onclick="navigateTo('home')" class="flex flex-col cursor-pointer hover:opacity-80 transition">
+                    <div class="text-2xl font-black text-white bg-gradient-to-r from-orange-600 to-red-600 px-3 py-1 rounded">BBQ<span class="text-yellow-400">TEST</span></div>
+                    <div class="text-xs text-gray-600 font-bold tracking-widest">LEVEL UP YOUR GAME</div>
+                </button>
+                <div class="flex gap-8">
+                    <button onclick="navigateTo('home')" id="nav-home" class="transition text-gray-600 hover:text-black nav-active">Home</button>
+                    <a href="#" class="text-gray-600 hover:text-black transition">About Us</a>
+                    <button onclick="navigateTo('products')" id="nav-products" class="transition text-gray-600 hover:text-black">Products</button>
+                </div>
+                <button class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition">
+                    Cart
+                </button>
+            </div>
+        </nav>
+
+        <!-- HOME PAGE -->
+        <div id="home-page">
+            <!-- Hero Section -->
+            <section class="pt-32 pb-20 px-6 relative min-h-screen flex items-center hero-section">
+                <div class="hero-overlay"></div>
+                <div class="max-w-4xl mx-auto text-center hero-content">
+                    <div class="inline-block px-4 py-2 bg-orange-50 rounded-full mb-6">
+                        <span class="text-sm font-medium text-orange-600">Premium BBQ Gear & Sauces</span>
+                    </div>
+                    <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight text-white">
+                        Smoke, Sizzle &<br />
+                        <span class="gradient-text">Satisfy</span>
+                    </h1>
+                    <p class="text-xl text-white mb-8 max-w-2xl mx-auto">
+                        Everything you need to master the grill. Premium BBQ products, legendary sauces, and the rubs that make champions. Fire up your next cookout.
+                    </p>
+                    <button onclick="navigateTo('products')" class="bg-orange-600 text-white px-8 py-4 rounded-lg font-medium flex items-center gap-2 mx-auto hover:bg-orange-700 transition group">
+                        Shop Now
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Visual Section -->
+            <section class="px-6 py-20 bg-gradient-to-b from-gray-50 to-white">
+                <div class="max-w-6xl mx-auto">
+                    <div class="aspect-video bg-gradient-to-br from-orange-500 via-red-500 to-amber-600 rounded-3xl shadow-2xl flex items-center justify-center">
+                        <i class="fas fa-fire icon-large text-white opacity-50"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Categories -->
+            <section class="px-6 py-20">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-4xl font-bold mb-4 text-center">Shop by Category</h2>
+                    <p class="text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+                        From grills to rubs, find everything you need for legendary BBQ.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="p-8 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 text-white hover:shadow-xl transition cursor-pointer group">
+                            <h3 class="font-bold text-2xl mb-2 group-hover:translate-x-1 transition">Grills & Equipment</h3>
+                            <p class="text-orange-100 text-sm mb-4">Premium smokers, grills, and accessories</p>
+                            <button onclick="navigateTo('products')" class="text-white font-medium flex items-center gap-2 group-hover:gap-3 transition">
+                                Browse <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="p-8 rounded-2xl bg-gradient-to-br from-red-600 to-amber-600 text-white hover:shadow-xl transition cursor-pointer group">
+                            <h3 class="font-bold text-2xl mb-2 group-hover:translate-x-1 transition">Sauces & Condiments</h3>
+                            <p class="text-orange-100 text-sm mb-4">Award-winning sauces and glazes</p>
+                            <button onclick="navigateTo('products')" class="text-white font-medium flex items-center gap-2 group-hover:gap-3 transition">
+                                Browse <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="p-8 rounded-2xl bg-gradient-to-br from-amber-600 to-orange-500 text-white hover:shadow-xl transition cursor-pointer group">
+                            <h3 class="font-bold text-2xl mb-2 group-hover:translate-x-1 transition">Rubs & Seasonings</h3>
+                            <p class="text-orange-100 text-sm mb-4">Competition-grade spice blends</p>
+                            <button onclick="navigateTo('products')" class="text-white font-medium flex items-center gap-2 group-hover:gap-3 transition">
+                                Browse <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us -->
+            <section class="px-6 py-20 bg-gray-50">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-4xl font-bold mb-4 text-center">Why BBQ Test?</h2>
+                    <p class="text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+                        We're obsessed with quality, flavor, and helping you become a BBQ master.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="p-8 rounded-2xl border-2 border-orange-100 hover:border-orange-300 hover:shadow-lg transition group">
+                            <i class="fas fa-award w-8 h-8 mb-4 text-orange-600 text-2xl"></i>
+                            <h3 class="font-bold text-lg mb-2">Curated Selection</h3>
+                            <p class="text-gray-600 text-sm">Hand-picked products from the best BBQ brands</p>
+                        </div>
+                        <div class="p-8 rounded-2xl border-2 border-orange-100 hover:border-orange-300 hover:shadow-lg transition group">
+                            <i class="fas fa-fire w-8 h-8 mb-4 text-orange-600 text-2xl"></i>
+                            <h3 class="font-bold text-lg mb-2">Bold Flavors</h3>
+                            <p class="text-gray-600 text-sm">Sauces and rubs crafted by pitmasters</p>
+                        </div>
+                        <div class="p-8 rounded-2xl border-2 border-orange-100 hover:border-orange-300 hover:shadow-lg transition group">
+                            <i class="fas fa-truck w-8 h-8 mb-4 text-orange-600 text-2xl"></i>
+                            <h3 class="font-bold text-lg mb-2">Fast Shipping</h3>
+                            <p class="text-gray-600 text-sm">Get your gear ready in 2-3 business days</p>
+                        </div>
+                        <div class="p-8 rounded-2xl border-2 border-orange-100 hover:border-orange-300 hover:shadow-lg transition group">
+                            <i class="fas fa-users w-8 h-8 mb-4 text-orange-600 text-2xl"></i>
+                            <h3 class="font-bold text-lg mb-2">BBQ Community</h3>
+                            <p class="text-gray-600 text-sm">Join thousands of grill masters nationwide</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bestsellers Preview -->
+            <section class="px-6 py-20">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-4xl font-bold mb-4 text-center">Bestsellers</h2>
+                    <p class="text-gray-600 text-center mb-16">Our most loved products</p>
+                    <div class="grid md:grid-cols-4 gap-6" id="bestsellers-grid">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="px-6 py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl font-bold mb-2">50K+</div>
+                            <p class="text-orange-100">Happy Grillmasters</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">500+</div>
+                            <p class="text-orange-100">Products</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">4.9★</div>
+                            <p class="text-orange-100">Average Rating</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">48H</div>
+                            <p class="text-orange-100">Delivery</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="px-6 py-20">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold mb-6">Ready to up your BBQ game?</h2>
+                    <p class="text-gray-600 mb-8">Get expert tips, exclusive deals, and new sauce drops in your inbox.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            class="px-6 py-3 border-2 border-gray-300 rounded-lg flex-1 max-w-xs focus:outline-none focus:border-orange-600"
+                        />
+                        <button class="bg-orange-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-orange-700 transition">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PRODUCTS PAGE -->
+        <div id="products-page" style="display: none;">
+            <!-- Hero Section -->
+            <section class="pt-32 pb-16 px-6 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+                <div class="max-w-7xl mx-auto">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4">BBQ Products</h1>
+                    <p class="text-xl text-orange-100 max-w-2xl">
+                        Discover our curated collection of premium BBQ sauces, rubs, equipment, and bundles from championship pitmasters.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <div class="max-w-7xl mx-auto px-6 py-16">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <!-- Sidebar Filters -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-gray-50 rounded-lg p-6 sticky top-32">
+                            <h3 class="font-bold text-lg mb-6 flex items-center gap-2">
+                                <i class="fas fa-filter"></i>
+                                Filter
+                            </h3>
+
+                            <!-- Category Filter -->
+                            <div class="mb-8">
+                                <h4 class="font-semibold mb-4 text-gray-900">Category</h4>
+                                <div class="space-y-2" id="category-filter">
+                                </div>
+                            </div>
+
+                            <!-- Sort -->
+                            <div>
+                                <h4 class="font-semibold mb-4 text-gray-900">Sort</h4>
+                                <select 
+                                    id="sort-select"
+                                    onchange="handleSort(this.value)"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-600"
+                                >
+                                    <option value="featured">Featured</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="newest">Newest</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="lg:col-span-3">
+                        <div class="mb-8">
+                            <p class="text-gray-600" id="product-count">
+                                Showing products
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="products-grid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="px-6 py-12 border-t border-gray-100 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <div class="flex flex-col">
+                            <div class="text-lg font-black text-white bg-gradient-to-r from-orange-600 to-red-600 px-2 py-1 rounded">BBQ<span class="text-yellow-400">TEST</span></div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-2">Fueling legendary cookouts everywhere</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Shop</h4>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li><a href="#" class="hover:text-orange-600 transition">All Products</a></li>
+                            <li><a href="#" class="hover:text-orange-600 transition">Sauces</a></li>
+                            <li><a href="#" class="hover:text-orange-600 transition">Grills</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Company</h4>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li><a href="#" class="hover:text-orange-600 transition">About</a></li>
+                            <li><a href="#" class="hover:text-orange-600 transition">Blog</a></li>
+                            <li><a href="#" class="hover:text-orange-600 transition">Recipes</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Support</h4>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li><a href="#" class="hover:text-orange-600 transition">Contact</a></li>
+                            <li><a href="#" class="hover:text-orange-600 transition">Shipping</a></li>
+                            <li><a href="#" class="hover:text-orange-600 transition">Returns</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-200 pt-8 flex justify-between items-center text-sm text-gray-600 flex-col md:flex-row gap-4">
+                    <p>&copy; 2025 BBQ Test. All rights reserved.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-orange-600 transition">Facebook</a>
+                        <a href="#" class="hover:text-orange-600 transition">Instagram</a>
+                        <a href="#" class="hover:text-orange-600 transition">TikTok</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Product data
+        const products = [
+            {
+                id: 1,
+                name: "John P Lopez OG Sauce",
+                category: "sauces",
+                price: "$14.95",
+                emoji: "🍯",
+                description: "Award-winning BBQ sauce blend"
+            },
+            {
+                id: 2,
+                name: "Smoke-A-Holics Competition Rub",
+                category: "rubs",
+                price: "$12.99",
+                emoji: "🧂",
+                description: "Award-winning competition grade"
+            },
+            {
+                id: 3,
+                name: "Zavala's Sloppy Juan Sauce",
+                category: "sauces",
+                price: "$12.95",
+                emoji: "🍯",
+                description: "Bold & flavorful signature sauce"
+            },
+            {
+                id: 4,
+                name: "Hurtado's 4-Piece Bundle",
+                category: "bundles",
+                price: "$23.31",
+                emoji: "📦",
+                description: "Texas Rangers official BBQ"
+            },
+            {
+                id: 5,
+                name: "Big Wick's Mesquite Jalapeño",
+                category: "sauces",
+                price: "$14.99",
+                emoji: "🌶️",
+                description: "Award-winning glaze"
+            },
+            {
+                id: 6,
+                name: "Smokey Woods Apple Pellets",
+                category: "equipment",
+                price: "$29.99",
+                emoji: "🔥",
+                description: "100% natural hardwood pellets"
+            },
+            {
+                id: 7,
+                name: "Franklin's Barbecue Rub",
+                category: "rubs",
+                price: "$16.99",
+                emoji: "🧂",
+                description: "Legend's blend - legendary results"
+            },
+            {
+                id: 8,
+                name: "Mesquite Smoking Chips",
+                category: "equipment",
+                price: "$18.99",
+                emoji: "🪵",
+                description: "Premium smoking wood"
+            },
+            {
+                id: 9,
+                name: "Carolina Gold Mustard Sauce",
+                category: "sauces",
+                price: "$13.99",
+                emoji: "🍯",
+                description: "Classic Southern style"
+            },
+            {
+                id: 10,
+                name: "Texas Beef Dry Rub",
+                category: "rubs",
+                price: "$14.99",
+                emoji: "🧂",
+                description: "Bold beef seasoning blend"
+            },
+            {
+                id: 11,
+                name: "Premium Grill Tool Set",
+                category: "equipment",
+                price: "$49.99",
+                emoji: "🛠️",
+                description: "Complete grilling accessory kit"
+            },
+            {
+                id: 12,
+                name: "Competition BBQ Bundle",
+                category: "bundles",
+                price: "$59.99",
+                emoji: "📦",
+                description: "Everything for championship BBQ"
+            }
+        ];
+
+        const categories = [
+            { id: 'all', name: 'All Products' },
+            { id: 'sauces', name: 'Sauces & Condiments' },
+            { id: 'rubs', name: 'Rubs & Seasonings' },
+            { id: 'equipment', name: 'Equipment & Accessories' },
+            { id: 'bundles', name: 'Bundle Packs' }
+        ];
+
+        let currentPage = 'home';
+        let selectedCategory = 'all';
+        let sortBy = 'featured';
+
+        function navigateTo(page) {
+            currentPage = page;
+            selectedCategory = 'all';
+            sortBy = 'featured';
+            window.scrollTo(0, 0);
+            updatePageView();
+            updateNavigation();
+        }
+
+        function updatePageView() {
+            const homePage = document.getElementById('home-page');
+            const productsPage = document.getElementById('products-page');
+
+            if (currentPage === 'home') {
+                homePage.style.display = 'block';
+                productsPage.style.display = 'none';
+                renderBestsellers();
+            } else {
+                homePage.style.display = 'none';
+                productsPage.style.display = 'block';
+                renderCategoryFilter();
+                renderProducts();
+            }
+        }
+
+        function updateNavigation() {
+            const navHome = document.getElementById('nav-home');
+            const navProducts = document.getElementById('nav-products');
+
+            if (currentPage === 'home') {
+                navHome.classList.add('nav-active');
+                navProducts.classList.remove('nav-active');
+            } else {
+                navHome.classList.remove('nav-active');
+                navProducts.classList.add('nav-active');
+            }
+        }
+
+        function renderBestsellers() {
+            const grid = document.getElementById('bestsellers-grid');
+            grid.innerHTML = products.slice(0, 4).map(product => `
+                <div class="rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition group cursor-pointer">
+                    <div class="bg-gradient-to-br from-amber-900 via-orange-700 to-red-800 aspect-square flex items-center justify-center group-hover:scale-105 transition relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <div class="text-center z-10">
+                            <div class="text-4xl font-bold text-white mb-2">${product.emoji}</div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2 text-sm">${product.name}</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-orange-600 font-bold">${product.price}</span>
+                            <button class="text-orange-600 hover:text-orange-700 transition">+</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderCategoryFilter() {
+            const filterContainer = document.getElementById('category-filter');
+            filterContainer.innerHTML = categories.map(cat => `
+                <label class="flex items-center cursor-pointer group">
+                    <input
+                        type="radio"
+                        name="category"
+                        value="${cat.id}"
+                        ${selectedCategory === cat.id ? 'checked' : ''}
+                        onchange="handleCategoryChange(this.value)"
+                        class="w-4 h-4 text-orange-600 cursor-pointer"
+                    />
+                    <span class="ml-3 text-gray-700 group-hover:text-orange-600 transition">${cat.name}</span>
+                </label>
+            `).join('');
+        }
+
+        function handleCategoryChange(category) {
+            selectedCategory = category;
+            renderProducts();
+        }
+
+        function handleSort(sortOption) {
+            sortBy = sortOption;
+            renderProducts();
+        }
+
+        function getFilteredAndSortedProducts() {
+            let filtered = selectedCategory === 'all' 
+                ? products 
+                : products.filter(p => p.category === selectedCategory);
+
+            if (sortBy === 'price-low') {
+                filtered.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+            } else if (sortBy === 'price-high') {
+                filtered.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+            } else if (sortBy === 'newest') {
+                filtered.sort((a, b) => b.id - a.id);
+            }
+
+            return filtered;
+        }
+
+        function renderProducts() {
+            const filteredProducts = getFilteredAndSortedProducts();
+            
+            // Update count
+            const countElement = document.getElementById('product-count');
+            const categoryName = categories.find(c => c.id === selectedCategory)?.name || 'products';
+            countElement.textContent = `Showing ${filteredProducts.length} ${selectedCategory === 'all' ? 'products' : `${selectedCategory} products`}`;
+
+            // Render grid
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-amber-900 via-orange-700 to-red-800 aspect-square rounded-lg mb-4 flex items-center justify-center overflow-hidden hover:shadow-xl transition-all duration-300">
+                        <div class="text-7xl group-hover:scale-110 transition-transform duration-300">${product.emoji}</div>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 group-hover:text-orange-600 transition line-clamp-2">
+                        ${product.name}
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-3">${product.description}</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-orange-600">${product.price}</span>
+                        <button class="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition opacity-0 group-hover:opacity-100 transition-opacity">
+                            Add
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        updatePageView();
+    </script>
+</body>
+</html>
